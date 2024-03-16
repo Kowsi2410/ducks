@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Image Fader</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRGZRybhcSqP8y16gsdfklAM67Sa--b6CiOw&s" id="image" width="650" height="450">
+
+<button id="changeImage">Change Image</button>
+
+<script>
+$(document).ready(function(){
+	$("#changeImage").click(function(){
+		fadeOutImage();
+	});
+});
+
+function fadeOutImage() {
+	$("#image").fadeOut(2000, function(){
+		changeImageSource();
+		fadeInImage();
+	});
+}
+
+function changeImageSource() {
+	var newImageSource = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKhfFjJbeDG8MHvwkz_lHhmdyL1KibAyzu3A&s"; // Change this to the new image source
+	$("#image").attr("src", newImageSource);
+}
+
+function fadeInImage() {
+	$("#image").fadeIn(2000);
+}
+</script>
+
+</body>
+</html>
